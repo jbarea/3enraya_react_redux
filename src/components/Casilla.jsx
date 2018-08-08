@@ -3,10 +3,10 @@ import CasillaX from './CasillaX';
 import CasillaO from './CasillaO';
 const Casilla = (props) => {
         return(
-            <div className="casilla" onClick={props.checkCasilla(props.id)}>
+            <div className="casilla" onClick={()=>props.checkCasilla(props.id)}>
             {
                 typeof props.owner === 'undefined' ?
-                '_' : props.owner ?
+                '' : props.owner ?
                 <CasillaX/> : <CasillaO/>
             }
             </div>

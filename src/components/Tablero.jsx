@@ -57,7 +57,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        checkCasilla: (id,jug) => dispatch(checkCasilla(id,jug))
+        checkCasilla: (id) => dispatch(checkCasilla(id))
      })
 }
 

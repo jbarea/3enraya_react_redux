@@ -6,11 +6,10 @@ export const actionTypes = {
     
 }
 
-export const checkCasilla = (id,jug) => {
+export const checkCasilla = (id) => {
     return {
         type: actionTypes.ADD,
-        id,
-        jug
+        id
     }
 }
 
