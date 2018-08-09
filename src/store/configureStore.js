@@ -9,7 +9,7 @@ const initialStore = {
         2: ['','',''],
     }, */
     casillas: [],
-    turno: 'X',
+    turno: true,
     gana: undefined,
     lineaGana: undefined,
     empata: false

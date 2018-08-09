@@ -6,17 +6,18 @@ export const casillasReducer = (state,action) => {
     switch (action.type){
         case actionTypes.ADD:
             console.log(state);
+            //console.log(action);
             const {id} = action;
             const newState = state;
-            
-            newState.casillas.foreach((elem, index, arr)=>{
+            //console.log(newState);
+            newState.casillas.forEach((elem, index, arr)=>{
                 if(elem.id===id){
                     newState.casillas[index].jug = newState.turno;
                     newState.turno = !newState.turno;
                     return newState;
                 }
             })
-
+           return newState;
         default: return state;
     }
 }

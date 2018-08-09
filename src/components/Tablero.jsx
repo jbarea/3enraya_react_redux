@@ -9,8 +9,7 @@ import {checkCasilla} from '../actions/casillas';
 
 
 class Tablero extends Component { 
-
-
+   
     render(){
         return (
             <div className="exterior">
