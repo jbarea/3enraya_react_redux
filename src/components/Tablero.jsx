@@ -15,6 +15,7 @@ class Tablero extends Component {
             <div className="exterior">
             <div><p>Ahora juega {this.props.turno}</p></div>
                 <div className="tablero">
+                {console.log('Tablero inicializado!!!!')}
                     {/* <div className="casilla" id="1" onClick={(e)=>this.handleOnClick(e)}>1</div>
                     <div className="casilla" id="2" onClick={(e)=>this.handleOnClick(e)}>2</div>
                     <div className="casilla" id="3" onClick={(e)=>this.handleOnClick(e)}>3</div>

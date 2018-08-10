@@ -1,4 +1,4 @@
-import {createStore,combineReducers} from 'redux';
+import {createStore} from 'redux';
 import {casillasReducer} from '../reducers/casillas';
 import uuid from 'uuid';
 
