@@ -7,7 +7,7 @@ export const actionTypes = {
 }
 
 export const checkCasilla = (id) => {
-    console.log(this.state)
+    
     return {
         type: actionTypes.ADD,
         id,

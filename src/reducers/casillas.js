@@ -9,7 +9,8 @@ export const casillasReducer = (state,action) => {
             console.log(action);
             const {id} = action;
             const newState = state;
-            //console.log(newState);
+            //console.log('Nuevo estado: ',newState)
+            console.log('Nuevo estado descompuesto: ',...newState.casillas); //Si hago ...newState no desestructura el estado y por eso daba error de undefined
           
             newState.casillas.forEach((elem, index, arr)=>{
                 if(elem.id===id){
@@ -17,6 +18,7 @@ export const casillasReducer = (state,action) => {
                     newState.turno = !newState.turno;
                 }
             })
+            
             return newState;
            
         default: return state;
