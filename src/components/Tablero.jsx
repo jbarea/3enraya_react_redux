@@ -13,7 +13,11 @@ class Tablero extends Component {
     render(){
         return (
             <div className="exterior">
-            <div><p>Ahora juega {this.props.turno}</p></div>
+            {
+                    this.props.turno ? <div><p>Ahora juega X</p></div>
+                        : <div><p>Ahora juega O</p></div>
+            }
+            
                 <div className="tablero">
                 {console.log('Tablero inicializado!!!!')}
                 {console.log(this.props.state)}
@@ -36,6 +40,10 @@ class Tablero extends Component {
                                    />
                                )
                            })
+                    }
+                    {
+                        this.props.gana ? <div><p>Has ganado!!!, pulsa reset para volver a empezar!</p></div>
+                        : ''
                     }
                 </div>
                 <div className="botonCentrado">

@@ -1,5 +1,5 @@
 import {actionTypes} from '../actions/casillas';
-import {checkTurno} from '../controller/gameController';
+import checkJugada from '../controller/gameController';
 //const defaultState = [];
 
 export const casillasReducer = (state,action) => {
@@ -18,10 +18,15 @@ export const casillasReducer = (state,action) => {
                 }
             })
             
-            // const res = checkTurno(newState);
-            // if (res === true){
-
-            // }
+            const res = checkJugada(newState);
+            if ((res === 'f1x')||(res === 'f1o')||(res === 'f2x')||(res === 'f2o')||(res === 'f3x')||(res === 'f3o')||(res === 'c1x')
+                ||(res === 'c1o')||(res === 'c2x')||(res === 'c2o')||(res === 'c3x')||(res === 'c3o')||(res === 'd1x')||(res === 'd1o')
+                ||(res === 'd2x')||(res === 'd2o')){
+                newState.gana = true;
+            }else if (res === 'undefined'){
+                console.log('todavia no hay victoria por ninguna de las partes');
+            }
+                        
             return {...newState};
            
         default: return state;
