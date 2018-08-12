@@ -14,6 +14,8 @@ export const checkCasilla = (id) => {
     }
 }
 
-export const resetearJuego = () => {
-    
+export const resetGame = () => {
+    return {
+        type: actionTypes.RESET
+    }
 }

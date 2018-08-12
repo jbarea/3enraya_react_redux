@@ -49,7 +49,8 @@ function checkJugada(newStat){
         return res = 'd2x';
     }else if((newStat.casillas[6].jug === false) && (newStat.casillas[4].jug === false) && (newStat.casillas[2].jug === false)){
         return res = 'd2o';
-    } 
+    }
+     
     return res;
 }    
 

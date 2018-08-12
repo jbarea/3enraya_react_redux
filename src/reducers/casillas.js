@@ -1,6 +1,6 @@
 import {actionTypes} from '../actions/casillas';
 import checkJugada from '../controller/gameController';
-//const defaultState = [];
+import {uuid} from 'uuid';
 
 export const casillasReducer = (state,action) => {
     switch (action.type){
@@ -26,9 +26,44 @@ export const casillasReducer = (state,action) => {
             }else if (res === 'undefined'){
                 console.log('todavia no hay victoria por ninguna de las partes');
             }
-                        
+            
+            let count = 0;
+            for (let i=0;i<9;i++){
+                if((newState.casillas[i].jug === true) || (newState.casillas[i].jug === false)){
+                    count++;
+                }
+            }
+            if(count===9){
+                newState.empata = true;
+                count = 0;
+            }else{
+                newState.empata = false;
+                count = 0;
+            }
+
             return {...newState};
-           
+
+        case actionTypes.RESET:
+            const initialStore = {
+                casillas: [],
+                turno: true,
+                gana: undefined,
+                empata: false
+            }
+
+            for (var i = 0; i < 3; i++) {
+                for (var j = 0; j < 3; j++) {
+                    initialStore.casillas.push({
+                        row: i,
+                        col: j,
+                        jug: undefined,
+                        id: uuid()
+                    });
+                };
+            };
+            
+            return {...initialStore};
+
         default: return state;
     }
 }

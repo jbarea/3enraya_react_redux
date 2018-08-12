@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 
 
 import Casilla from '../components/Casilla';
+import BotonReset from '../components/BotonReset';
 import '../styles/index.scss';
 import '../styles/index.css';
 import {checkCasilla} from '../actions/casillas';
-
+import {resetGame} from '../actions/casillas';
 
 class Tablero extends Component { 
    
@@ -14,8 +15,8 @@ class Tablero extends Component {
         return (
             <div className="exterior">
             {
-                    this.props.turno ? <div><p>Ahora juega X</p></div>
-                        : <div><p>Ahora juega O</p></div>
+                    this.props.turno ? <div className="estadoJuego"><p>Ahora juega X</p></div>
+                        : <div className="estadoJuego"><p>Ahora juega O</p></div>
             }
             
                 <div className="tablero">
@@ -41,14 +42,19 @@ class Tablero extends Component {
                                )
                            })
                     }
-                    {
-                        this.props.gana ? <div><p>Has ganado!!!, pulsa reset para volver a empezar!</p></div>
-                        : ''
-                    }
+                 
                 </div>
                 <div className="botonCentrado">
-                    <input type="submit" value="Reset" className="botonReset"></input>
+                <BotonReset resetGame={this.props.resetGame}/>
                 </div>
+                {
+                    this.props.gana ? <div className="ganador"><p>Has ganado!!!, Pulsa reset para volver a empezar!</p></div>
+                        : ''
+                }
+                {
+                    this.props.empata && !this.props.gana ? <div className="empate"><p>Empate!!!, Pulsa reset para volver a empezar!</p></div>
+                        : ''
+                }
             </div>
         )
     }
@@ -59,14 +65,14 @@ const mapStateToProps = (state) => {
         casillas: state.casillas,
         turno: state.turno,
         gana: state.gana,
-        lineaGana: state.lineaGana,
         empata: state.empata
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        checkCasilla: (id) => dispatch(checkCasilla(id))
+        checkCasilla: (id) => dispatch(checkCasilla(id)),
+        resetGame: () => dispatch(resetGame())
      })
 }
 

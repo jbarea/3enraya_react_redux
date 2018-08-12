@@ -3,15 +3,9 @@ import {casillasReducer} from '../reducers/casillas';
 import uuid from 'uuid';
 
 const initialStore = {
-    /* casillas: {
-        0: ['','',''],
-        1: ['','',''],
-        2: ['','',''],
-    }, */
     casillas: [],
     turno: true,
     gana: undefined,
-    lineaGana: undefined,
     empata: false
 }
 
