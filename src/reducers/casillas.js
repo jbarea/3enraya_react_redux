@@ -1,6 +1,5 @@
 import {actionTypes} from '../actions/casillas';
 import checkJugada from '../controller/gameController';
-import {uuid} from 'uuid';
 
 export const casillasReducer = (state,action) => {
     switch (action.type){
@@ -44,25 +43,11 @@ export const casillasReducer = (state,action) => {
             return {...newState};
 
         case actionTypes.RESET:
-            const initialStore = {
-                casillas: [],
-                turno: true,
-                gana: undefined,
-                empata: false
-            }
-
-            for (var i = 0; i < 3; i++) {
-                for (var j = 0; j < 3; j++) {
-                    initialStore.casillas.push({
-                        row: i,
-                        col: j,
-                        jug: undefined,
-                        id: uuid()
-                    });
-                };
-            };
+            console.log(action)
+            console.log('inicializacion de estado mediante boton: ');
+           
             
-            return {...initialStore};
+            return true
 
         default: return state;
     }

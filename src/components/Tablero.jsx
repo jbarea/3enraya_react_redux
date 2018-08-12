@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
-
 import Casilla from '../components/Casilla';
 import BotonReset from '../components/BotonReset';
 import '../styles/index.scss';
@@ -22,15 +20,7 @@ class Tablero extends Component {
                 <div className="tablero">
                 {console.log('Tablero inicializado!!!!')}
                 {console.log(this.props.state)}
-                    {/* <div className="casilla" id="1" onClick={(e)=>this.handleOnClick(e)}>1</div>
-                    <div className="casilla" id="2" onClick={(e)=>this.handleOnClick(e)}>2</div>
-                    <div className="casilla" id="3" onClick={(e)=>this.handleOnClick(e)}>3</div>
-                    <div className="casilla" id="4" onClick={(e)=>this.handleOnClick(e)}>4</div>
-                    <div className="casilla" id="5" onClick={(e)=>this.handleOnClick(e)}>5</div>
-                    <div className="casilla" id="6" onClick={(e)=>this.handleOnClick(e)}>6</div>
-                    <div className="casilla" id="7" onClick={(e)=>this.handleOnClick(e)}>7</div>
-                    <div className="casilla" id="8" onClick={(e)=>this.handleOnClick(e)}>8</div>
-                    <div className="casilla" id="9" onClick={(e)=>this.handleOnClick(e)}>9</div> */}
+                    
                     {
                            this.props.casillas.map(subElement => {
                                return(
@@ -45,7 +35,7 @@ class Tablero extends Component {
                  
                 </div>
                 <div className="botonCentrado">
-                <BotonReset resetGame={this.props.resetGame}/>
+                    <BotonReset resetGame={this.props.resetGame}/>
                 </div>
                 {
                     this.props.gana ? <div className="ganador"><p>Has ganado!!!, Pulsa reset para volver a empezar!</p></div>
