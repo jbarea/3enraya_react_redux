@@ -1,8 +1,9 @@
 import {actionTypes} from '../actions/casillas';
 import checkJugada from '../controller/gameController';
-import TableroModel from '../models/TableroModel';
-import moment from 'moment';
-
+//import {uuid} from 'uuid';
+//import TableroModel from '../models/TableroModel';
+//import moment from 'moment';
+//const TableroModel = require('../models/TableroModel');
 //const mongoose = require('../connections/mongoose');
 
 export const casillasReducer = (state,action) => {
@@ -19,10 +20,10 @@ export const casillasReducer = (state,action) => {
                     newState.casillas[index].jug = newState.turno;
                     newState.turno = !newState.turno;
                     //codigo temporal para guardado en base de datos
-                    const asyncDB = async () => {
+                    /* const asyncDB = async () => {
                         try{
                             await TableroModel.remove({});
-                            const TableroModel = await new TableroModel({
+                            await new TableroModel({
                                 casillas_: [{
                                     row: newState.casillas[index].pos,
                                     pos: newState.casillas[index].row,
@@ -39,7 +40,7 @@ export const casillasReducer = (state,action) => {
                             throw new Error(err);
                         }
                     }
-                    asyncDB();
+                    asyncDB(); */
                 }
             })
             
@@ -71,9 +72,15 @@ export const casillasReducer = (state,action) => {
         case actionTypes.RESET:
             console.log(action)
             console.log('inicializacion de estado mediante boton: ');
-           
-            
-            return true
+            const newState2 = state;
+            newState2.casillas.forEach((elem, index, arr) => {
+                newState2.casillas[index].jug = undefined;
+                newState2.casillas[index].turno = true;
+                newState2.gana = undefined;
+                newState2.empata = false;
+            })
+            console.log(newState2)
+            return {...newState2};
 
         default: return state;
     }

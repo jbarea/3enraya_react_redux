@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+/* const mongoose = require('mongoose');
 const TableroSchema = new mongoose.Schema({
     casillas_: [{
         row: {
@@ -34,4 +34,4 @@ const TableroSchema = new mongoose.Schema({
 
 const TableroModel = mongoose.model('Tableros', TableroSchema);
 
-module.exports = TableroModel;
+module.exports = TableroModel; */
