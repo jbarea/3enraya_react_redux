@@ -1,5 +1,9 @@
 import {actionTypes} from '../actions/casillas';
 import checkJugada from '../controller/gameController';
+import TableroModel from '../models/TableroModel';
+import moment from 'moment';
+
+//const mongoose = require('../connections/mongoose');
 
 export const casillasReducer = (state,action) => {
     switch (action.type){
@@ -14,6 +18,28 @@ export const casillasReducer = (state,action) => {
                     console.log(index)
                     newState.casillas[index].jug = newState.turno;
                     newState.turno = !newState.turno;
+                    //codigo temporal para guardado en base de datos
+                    const asyncDB = async () => {
+                        try{
+                            await TableroModel.remove({});
+                            const TableroModel = await new TableroModel({
+                                casillas_: [{
+                                    row: newState.casillas[index].pos,
+                                    pos: newState.casillas[index].row,
+                                    col: newState.casillas[index].jug,
+                                    jug: newState.casillas[index].jug,
+                                    id: newState.casillas[index].id,
+                                }],
+                                turno: newState.casillas[index].turno,
+                                gana: newState.casillas[index].gana,
+                                empata: newState.casillas[index].empata,
+                                date: moment().format()
+                            }).save();                        
+                        }catch(err){
+                            throw new Error(err);
+                        }
+                    }
+                    asyncDB();
                 }
             })
             
