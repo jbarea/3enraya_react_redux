@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Instalación/Install
 ```bash
-git https://bitbucket.org/jbarea/3enraya_react_redux
+git https://github.com/jbarea/3enraya_react_redux
 cd 3enraya_react_redux
 npm install
 ```
