@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Casilla from '../components/Casilla';
 import BotonReset from '../components/BotonReset';
@@ -12,12 +12,12 @@ class Tablero extends Component {
     return (
       <div className="exterior">
         {
-                    this.props.turno ? 
-                      <div className="estadoJuego">
+                    this.props.turno
+                      ? <div className="estadoJuego">
                       <p>
                           Ahora juega X
                       </p>
-                      </div>
+                        </div>
                       : <div className="estadoJuego">
                         <p>
                             Ahora juega O
@@ -38,32 +38,42 @@ class Tablero extends Component {
                    );
                  })
                     }
-                </div>
-                <div className="botonCentrado">
-                    <BotonReset resetGame={this.props.resetGame}/>
-                </div>
-                {
-                    this.props.gana ? <div className="ganador"><p>Has ganado!!!, Pulsa reset para volver a empezar!</p></div>
-                      : ''
-                }
-                {
-                    this.props.empata && !this.props.gana ? <div className="empate"><p>Empate!!!, Pulsa reset para volver a empezar!</p></div>
-                      : ''
-                }
         </div>
-    )
+                <div className="botonCentrado">
+                    <BotonReset resetGame={this.props.resetGame} />
+                </div>
+                {
+                    this.props.gana
+                      ? <div className="ganador">
+                    <p>
+                      Has ganado!!!, Pulsa reset para volver a empezar!
+                    </p>
+                        </div>
+                      : ''
+                }
+                {
+                    this.props.empata && !this.props.gana
+                      ? <div className="empate">
+                    <p>
+                      Empate!!!, Pulsa reset para volver a empezar!
+                    </p>
+                        </div>
+                      : ''
+                }
+      </div>
+    );
   }
 }
 
-Tablero.propTypes = {
-  casillas: PropTypes.array.isRequired,
-  turno: PropTypes.bool.isRequired,
-  gana: PropTypes.bool.isRequired,
-  empata: PropTypes.bool.isRequired,
-  checkCasilla: PropTypes.func.isRequired,
-  resetGame: PropTypes.func.isRequired,
-  state: PropTypes.object.isRequired
-};
+// Tablero.propTypes = {
+//   casillas: PropTypes.arrayOf.isRequired,
+//   turno: PropTypes.bool.isRequired,
+//   gana: PropTypes.bool.isRequired,
+//   empata: PropTypes.bool.isRequired,
+//   checkCasilla: PropTypes.func.isRequired,
+//   resetGame: PropTypes.func.isRequired,
+//   state: PropTypes.objectOf.isRequired,
+// };
 
 const mapStateToProps = (state) => {
   return {
@@ -80,4 +90,4 @@ const mapDispatchToProps = (dispatch) => {
     resetGame: () => dispatch(resetGame()),
   });
 };
-export default connect(mapStateToProps, mapDispatchToProps)(Tablero); 
+export default connect(mapStateToProps, mapDispatchToProps)(Tablero);
