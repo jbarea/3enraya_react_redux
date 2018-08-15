@@ -6,12 +6,11 @@ body {
 
 header {
     text-align: center;
-    
 }
 
 .titulo {
-    color: black;
     text-align: center;
+    color: black;
     margin-bottom: 0px;
 }
 
@@ -20,17 +19,18 @@ header {
     font-size: 20px;
 }
 
-.exterior {
- overflow: hidden;
+.exterior { 
+    display: block;
+    justify-content: first baseline;
 }
 
-.tablero {
+.tablero {   
     display: grid;
     grid-template-columns: 150px 150px 150px;
     grid-column-gap: 10px;
     grid-row-gap: 10px;
     grid-gap: 10px;
-    margin-left: 231px;
+    margin-left: 150px;
     margin-top: 0px;
 }
 
@@ -57,7 +57,7 @@ header {
     width: 190px;
     height:90px;
     margin-top: 27px;
-    margin-left: 367px;
+    margin-left: 290px;
 }
 
 .ganador {
