@@ -39,27 +39,28 @@ class Tablero extends Component {
                  })
                     }
         </div>
+        {
+          this.props.gana
+            ? <div className="ganador">
+              <p>
+                Has ganado!!!, Pulsa reset para volver a empezar!
+                    </p>
+            </div>
+            : ''
+        }
+        {
+          this.props.empata && !this.props.gana
+            ? <div className="empate">
+              <p>
+                Empate!!!, Pulsa reset para volver a empezar!
+                    </p>
+            </div>
+            : ''
+        }
                 <div className="botonCentrado">
                     <BotonReset resetGame={this.props.resetGame} />
                 </div>
-                {
-                    this.props.gana
-                      ? <div className="ganador">
-                    <p>
-                      Has ganado!!!, Pulsa reset para volver a empezar!
-                    </p>
-                        </div>
-                      : ''
-                }
-                {
-                    this.props.empata && !this.props.gana
-                      ? <div className="empate">
-                    <p>
-                      Empate!!!, Pulsa reset para volver a empezar!
-                    </p>
-                        </div>
-                      : ''
-                }
+                
       </div>
     );
   }

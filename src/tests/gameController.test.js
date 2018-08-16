@@ -1,70 +1,70 @@
-import { uuid } from 'uuid';
-import { checkJugada } from '../controller/gameController';
+import {diag1x, diag1o, diag2x, diag2o, fila1x, fila1o, fila2x, fila2o, fila3x, fila3o, 
+    col1x, col1o, col2x, col2o, col3x, col3o, empate} from '../tests/testData/testData';
+import checkJugada  from '../controller/gameController';
 
 describe('checkJugada', ()  => {
-    test('Comprobamos que hay un ganador en una de las filas', () => {
-        const estruc = {
-            casillas: [{
-                row: 0,
-                col: 0,
-                jug: true,
-                id: '3447ryhryr3475'
-            },
-            {
-                row: 0,
-                col: 1,
-                jug: false,
-                id: '58869405fggdfff'
-            },
-            {
-                row: 0,
-                col: 2,
-                jug: 'undefined',
-                id: 'fder755g8'
-            },
-            {
-                row: 1,
-                col: 0,
-                jug: 'undefined',
-                id: '56tfgy5rt76'
-            },
-            {
-                row: 1,
-                col: 1,
-                jug: true,
-                id: '5478546yhg5'
-            },
-            {
-                row: 1,
-                col: 2,
-                jug: 'undefined',
-                id: '5465hyh67'
-            },
-            {
-                row: 2,
-                col: 0,
-                jug: 'undefined',
-                id: '56767dfg5454'
-            },
-            {
-                row: 2,
-                col: 1,
-                jug: 'undefined',
-                id: '5485465trg234523d'
-            },
-            {
-                row: 2,
-                col: 2,
-                jug: true,
-                id: '575568585ergdfgcvb'
-            }
-            ],
-                turno: true,
-                gana: undefined,
-                empata: false
-        }
+    test('Comprobamos que hay un ganador en la diagonal primera(x)', () => {
+        expect(checkJugada(diag1x)).toBe('d1x');
+    })
 
-        const mockcheckJugada = jest.fn(checkJugada);
+    test('Comprobamos que hay un ganador en la diagonal primera(o)', () => {
+        expect(checkJugada(diag1o)).toBe('d1o')
+    })
 
+    test('Comprobamos que hay un ganador en la diagonal segunda(x)', () => {
+        expect(checkJugada(diag2x)).toBe('d2x');
+    })
+
+    test('Comprobamos que hay un ganador en la diagonal segunda(o)', () => {
+        expect(checkJugada(diag2o)).toBe('d2o');
+    })
+
+    test('Comprobamos que hay un ganador en la primera fila(x)', () => {
+        expect(checkJugada(fila1x)).toBe('f1x');
+    })
+
+    test('Comprobamos que hay un ganador en la primera fila(o)', () => {
+        expect(checkJugada(fila1o)).toBe('f1o');
+    })
+
+    test('Comprobamos que hay un ganador en la segunda fila(x)', () => {
+        expect(checkJugada(fila2x)).toBe('f2x');
+    })
+
+    test('Comprobamos que hay un ganador en la segunda fila(o)', () => {
+        expect(checkJugada(fila2o)).toBe('f2o');
+    })
+
+    test('Comprobamos que hay un ganador en la tercera fila(x)', () => {
+        expect(checkJugada(fila3x)).toBe('f3x');
+    })
+    
+    test('Comprobamos que hay un ganador en la tercera fila(o)', () => {
+        expect(checkJugada(fila3o)).toBe('f3o');
+    })
+
+    test('Comprobamos que hay un ganador en la primera columna(x)', () => {
+        expect(checkJugada(col1x)).toBe('c1x');
+    })
+
+    test('Comprobamos que hay un ganador en la primera columna(o)', () => {
+        expect(checkJugada(col1o)).toBe('c1o');
+    })
+
+    test('Comprobamos que hay un ganador en la segunda columna(x)', () => {
+        expect(checkJugada(col2x)).toBe('c2x');
+    })
+
+    test('Comprobamos que hay un ganador en la segunda columna(o)', () => {
+        expect(checkJugada(col2o)).toBe('c2o');
+    })
+
+    test('Comprobamos que hay un ganador en la tercera columna(x)', () => {
+        expect(checkJugada(col3x)).toBe('c3x');
+    })
+
+    test('Comprobamos que hay un ganador en la tercera columna(o)', () => {
+        expect(checkJugada(col3o)).toBe('c3o');
     })
 })
+
