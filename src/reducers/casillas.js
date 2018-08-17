@@ -10,13 +10,10 @@ import checkJugada from '../controller/gameController';
 export const casillasReducer = (state, action) => {
   switch (action.type) {
     case actionTypes.ADD: {
-      console.log(state);
       const { id } = action;
       const newState = state;
       newState.casillas.forEach((elem, index) => {
         if (elem.id === id) {
-          console.log(elem);
-          console.log(index);
           newState.casillas[index].jug = newState.turno;
           newState.turno = !newState.turno;
         }
@@ -26,8 +23,6 @@ export const casillasReducer = (state, action) => {
                 || (res === 'c1o') || (res === 'c2x') || (res === 'c2o') || (res === 'c3x') || (res === 'c3o') || (res === 'd1x') || (res === 'd1o')
                 || (res === 'd2x') || (res === 'd2o')) {
         newState.gana = true;
-      } else if (res === 'undefined') {
-        console.log('todavia no hay victoria por ninguna de las partes');
       }
       let count = 0;
       for (let i = 0; i < 9; i += 1) {
@@ -46,8 +41,6 @@ export const casillasReducer = (state, action) => {
       return { ...newState };
     }
     case actionTypes.RESET: {
-      console.log(action);
-      console.log('inicializacion de estado mediante boton: ');
       const newState2 = state;
       newState2.casillas.forEach((elem, index) => {
         newState2.casillas[index].jug = undefined;
@@ -55,7 +48,6 @@ export const casillasReducer = (state, action) => {
         newState2.gana = undefined;
         newState2.empata = false;
       });
-      console.log(newState2);
       return { ...newState2 };
     }
     default: return state;
