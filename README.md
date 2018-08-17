@@ -15,6 +15,14 @@ npm install
 npm run start
 or
 yarn start
+```
+
+## Test
+
+```bash
+npm run test
+or
+yarn test
 
 
 
