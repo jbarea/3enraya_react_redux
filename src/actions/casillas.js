@@ -1,21 +1,15 @@
-//import uuid from 'uuid';
+// import uuid from 'uuid';
 
 export const actionTypes = {
-    ADD: 'PONER_FICHA',
-    RESET: 'REINICIAR_JUEGO',
-    
-}
+  ADD: 'PONER_FICHA',
+  RESET: 'REINICIAR_JUEGO',
+};
 
-export const checkCasilla = (id) => {
-    
-    return {
-        type: actionTypes.ADD,
-        id,
-    }
-}
+export const checkCasilla = id => ({
+  type: actionTypes.ADD,
+  id,
+});
 
-export const resetGame = () => {
-    return {
-        type: actionTypes.RESET
-    }
-}
+export const resetGame = () => ({
+  type: actionTypes.RESET,
+});

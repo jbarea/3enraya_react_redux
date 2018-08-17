@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Casilla from '../components/Casilla';
 import BotonReset from '../components/BotonReset';
@@ -44,8 +44,8 @@ class Tablero extends Component {
             ? <div className="ganador">
               <p>
                 Has ganado!!!, Pulsa reset para volver a empezar!
-                    </p>
-            </div>
+              </p>
+              </div>
             : ''
         }
         {
@@ -53,28 +53,27 @@ class Tablero extends Component {
             ? <div className="empate">
               <p>
                 Empate!!!, Pulsa reset para volver a empezar!
-                    </p>
-            </div>
+              </p>
+              </div>
             : ''
         }
                 <div className="botonCentrado">
                     <BotonReset resetGame={this.props.resetGame} />
                 </div>
-                
       </div>
     );
   }
 }
 
-// Tablero.propTypes = {
-//   casillas: PropTypes.arrayOf.isRequired,
-//   turno: PropTypes.bool.isRequired,
-//   gana: PropTypes.bool.isRequired,
-//   empata: PropTypes.bool.isRequired,
-//   checkCasilla: PropTypes.func.isRequired,
-//   resetGame: PropTypes.func.isRequired,
-//   state: PropTypes.objectOf.isRequired,
-// };
+Tablero.propTypes = {
+  casillas: PropTypes.arrayOf.isRequired,
+  turno: PropTypes.bool.isRequired,
+  gana: PropTypes.bool.isRequired,
+  empata: PropTypes.bool.isRequired,
+  checkCasilla: PropTypes.func.isRequired,
+  resetGame: PropTypes.func.isRequired,
+  state: PropTypes.objectOf.isRequired,
+};
 
 const mapStateToProps = (state) => {
   return {

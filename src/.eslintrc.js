@@ -27,6 +27,10 @@ module.exports = {
         "react/prefer-stateless-function": "warn",
         "react/destructuring-assignment": "off",
         "react/jsx-wrap-multilines": "off",
-        "react/jsx-indent": "off"
+        "react/jsx-indent": "off",
+        "no-nested-ternary": 1,
+        "no-underscore-dangle": ["error", {
+            "allow": ["__REDUX_DEVTOOLS_EXTENSION__"]
+        }],
     }
 };
